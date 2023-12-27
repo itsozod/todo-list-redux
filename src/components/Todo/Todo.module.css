@@ -6,3 +6,14 @@
   margin: 10px;
   color: #fff;
 }
+.empty {
+  color: #fff;
+}
+.complete {
+  padding: 6px;
+  border: none;
+  border-radius: 12px;
+}
+.delete_btn {
+  cursor: pointer;
+}

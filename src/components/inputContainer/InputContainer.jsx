@@ -16,6 +16,9 @@ export const InputContainer = () => {
       type: TODO_ACTION,
       payload: { id: uuidv4(), title: todo },
     });
+    setTimeout(() => {
+      alert("Todo is added successfully");
+    }, 500);
   };
 
   const handleTodoSubmit = (e) => {
