@@ -3,20 +3,19 @@
   margin: 0 auto;
   padding: 10px;
 }
-.input-container {
+main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
-}
-.add,
-.submit-btn {
-  padding: 10px;
-  margin: 10px;
 }
 .todos-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #023e8a;
+  max-width: 500px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 12px;
 }

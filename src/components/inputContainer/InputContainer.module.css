@@ -1,0 +1,22 @@
+.input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.add,
+.submit_btn {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+.submit_btn {
+  cursor: pointer;
+  background-color: #ffc300;
+  transition: 0.3s ease;
+}
+.submit_btn:hover {
+  background-color: #f77f00;
+}
