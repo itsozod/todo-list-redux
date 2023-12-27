@@ -6,10 +6,15 @@ import { COMPLETE_ACTION } from "../../store/actions/completeAction";
 
 export const Todo = () => {
   const todos = useSelector((state) => state.todoReducer.todos);
+  console.log(todos);
   const dispatch = useDispatch();
 
   const deleteTodo = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
+    // const newTodos = todos.filter((todo) => todo.id !== id);
+    // dispatch({ type: DELETE_ACTION, payload: { todos: newTodos } });
+
+    const newTodos = [...todos];
+    newTodos.splice(id, 1);
     dispatch({ type: DELETE_ACTION, payload: { todos: newTodos } });
     setTimeout(() => {
       alert("Todo is deleted successfully");
