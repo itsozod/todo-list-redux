@@ -1,29 +1,27 @@
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 import { Header } from "./components/header/Header";
-import { useState } from "react";
+import { TODO_ACTION } from "./store/actions/todoAction";
+import { VALUE_ACTION } from "./store/actions/valueAction";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [todos, setTodos] = useState([
-    { id: uuidv4(), title: "Cut my hair" },
-    { id: uuidv4(), title: "Go Shopping" },
-  ]);
-  const [value, setValue] = useState("");
+  const todos = useSelector((state) => state.todoReducer.todos);
+  const value = useSelector((state) => state.todoReducer.value);
+  const dispatch = useDispatch();
 
   const addTodo = (todo) => {
-    setTodos([...todos, { id: uuidv4(), title: todo }]);
+    dispatch({
+      type: TODO_ACTION,
+      payload: { id: uuidv4(), title: todo },
+    });
   };
 
   const handleTodoSubmit = (e) => {
     e.preventDefault();
     console.log(value);
     addTodo(value);
-    setValue("");
-  };
-
-  const deleteTodo = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
+    dispatch({ type: VALUE_ACTION, payload: { value: "" } });
   };
 
   return (
@@ -36,7 +34,12 @@ function App() {
             type="text"
             placeholder="Enter your todo for today"
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) =>
+              dispatch({
+                type: VALUE_ACTION,
+                payload: { value: e.target.value },
+              })
+            }
           />
           <button type="submit" className="submit-btn">
             Add Todo
@@ -45,9 +48,7 @@ function App() {
       </div>
       <div className="todos-container">
         {todos.map((todo) => (
-          <p key={todo.id} onClick={() => deleteTodo(todo.id)}>
-            {todo.title}
-          </p>
+          <p key={todo.id}>{todo.title}</p>
         ))}
       </div>
     </>
