@@ -14,7 +14,7 @@ export const InputContainer = () => {
     }
     dispatch({
       type: TODO_ACTION,
-      payload: { id: uuidv4(), title: todo },
+      payload: { id: uuidv4(), title: todo, completed: false },
     });
     setTimeout(() => {
       alert("Todo is added successfully");

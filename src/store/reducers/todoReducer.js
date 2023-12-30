@@ -8,9 +8,15 @@ export const todoReducer = (state = todosData, action) => {
     case TODO_ACTION:
       return {
         ...state,
+        // first inside the todos array of objects copy all todo objects and
+        // add new object with id, title and completed false state which u get from payload
         todos: [
           ...state.todos,
-          { id: action.payload.id, title: action.payload.title },
+          {
+            id: action.payload.id,
+            title: action.payload.title,
+            completed: action.payload.completed,
+          },
         ],
       };
     case VALUE_ACTION:

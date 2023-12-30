@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #dee2ff;
+  /* background-color: #dee2ff; */
+  background-image: linear-gradient(lightblue, lightcoral);
   height: 100vh;
 }

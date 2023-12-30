@@ -13,6 +13,7 @@
   padding: 6px;
   border: none;
   border-radius: 12px;
+  cursor: pointer;
 }
 .delete_btn {
   cursor: pointer;
